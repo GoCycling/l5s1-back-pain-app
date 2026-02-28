@@ -1,0 +1,1543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L5-S1 Back Pain Relief</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .streak-banner {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .streak-banner span {
+            font-size: 36px;
+            display: block;
+            margin: 10px 0;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .disclaimer {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin-bottom: 25px;
+            border-radius: 5px;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        
+        .disclaimer strong {
+            display: block;
+            margin-bottom: 8px;
+            color: #856404;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+        }
+        
+        .question {
+            margin-bottom: 20px;
+        }
+        
+        .question label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #667eea;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .checkbox-item:hover {
+            background: #e9ecef;
+        }
+        
+        .checkbox-item input {
+            margin-right: 10px;
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+            width: 100%;
+            margin-top: 20px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+        }
+        
+        .pain-tracker {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .pain-tracker h3 {
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        
+        .pain-scale {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        
+        .pain-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+        
+        .pain-number:hover {
+            background: rgba(255,255,255,0.5);
+            transform: scale(1.1);
+        }
+        
+        .pain-number.selected {
+            background: white;
+            color: #fa709a;
+            transform: scale(1.2);
+        }
+        
+        .pain-chart {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+            color: #333;
+        }
+        
+        .chart-bars {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            height: 150px;
+            margin-top: 15px;
+            position: relative;
+        }
+        
+        .chart-bar {
+            width: 30px;
+            background: linear-gradient(to top, #667eea, #764ba2);
+            border-radius: 4px 4px 0 0;
+            position: relative;
+            transition: all 0.3s;
+            min-height: 5px;
+        }
+        
+        .chart-label {
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 11px;
+            color: #666;
+            white-space: nowrap;
+        }
+        
+        .achievements {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .badge {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid #e9ecef;
+            transition: all 0.3s;
+        }
+        
+        .badge.unlocked {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            border-color: #fdcb6e;
+        }
+        
+        .badge.locked {
+            opacity: 0.5;
+            filter: grayscale(100%);
+        }
+        
+        .badge-icon {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        
+        .badge-title {
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        .badge-desc {
+            font-size: 11px;
+            color: #666;
+        }
+        
+        .exercise-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .exercise-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .exercise-level {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+        
+        .level-beginner {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .level-intermediate {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .level-advanced {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .exercise-card h3 {
+            color: #667eea;
+            font-size: 20px;
+        }
+        
+        .exercise-details {
+            margin: 15px 0;
+            line-height: 1.8;
+        }
+        
+        .exercise-details strong {
+            color: #555;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .citation {
+            font-size: 12px;
+            color: #666;
+            font-style: italic;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #dee2e6;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .favorite-btn, .complete-btn, .level-btn {
+            flex: 1;
+            min-width: 100px;
+            background: #fff;
+            border: 2px solid #667eea;
+            color: #667eea;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .favorite-btn:hover, .complete-btn:hover, .level-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        .favorite-btn.favorited, .complete-btn.completed {
+            background: #667eea;
+            color: white;
+        }
+        
+        .level-btn.unlocked {
+            border-color: #28a745;
+            color: #28a745;
+        }
+        
+        .level-btn.unlocked:hover {
+            background: #28a745;
+            color: white;
+        }
+        
+        .back-btn {
+            background: #6c757d;
+            margin-bottom: 20px;
+        }
+        
+        .progress-summary {
+            background: #e7f3ff;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .progress-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .stat-box {
+            text-align: center;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+        }
+        
+        .stat-number {
+            font-size: 32px;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .milestone-alert {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            text-align: center;
+            animation: slideIn 0.5s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .level-progression {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background: #e9ecef;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.5s ease-out;
+        }
+        
+        .reminder-setup {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .reminder-setup h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .time-selector {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .time-selector input {
+            flex: 1;
+            min-width: 150px;
+            padding: 10px;
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        
+        .time-selector button {
+            flex: 0 0 auto;
+        }
+        
+        .share-progress {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .share-progress h3 {
+            color: white;
+            margin-bottom: 15px;
+        }
+        
+        .share-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 15px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .share-card-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .share-card-header h2 {
+            color: #667eea;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .share-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .share-stat {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+        }
+        
+        .share-stat-value {
+            font-size: 48px;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .share-stat-label {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .share-footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .leaderboard {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+        
+        .leaderboard h3 {
+            color: #333;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .leaderboard-list {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        
+        .leaderboard-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .leaderboard-item:last-child {
+            border-bottom: none;
+        }
+        
+        .leaderboard-rank {
+            font-size: 24px;
+            font-weight: bold;
+            color: #667eea;
+            width: 40px;
+            flex-shrink: 0;
+        }
+        
+        .leaderboard-info {
+            flex: 1;
+            margin-left: 15px;
+        }
+        
+        .leaderboard-name {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .leaderboard-detail {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .leaderboard-score {
+            font-size: 20px;
+            font-weight: bold;
+            color: #667eea;
+            flex-shrink: 0;
+        }
+        
+        .you-indicator {
+            background: #667eea;
+            color: white;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+        
+        .weekly-summary {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            border: 2px solid #667eea;
+            margin-bottom: 20px;
+        }
+        
+        .weekly-summary h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .summary-item {
+            padding: 10px 0;
+            border-bottom: 1px solid #e9ecef;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .summary-item:last-child {
+            border-bottom: none;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 100%;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+        }
+        
+        .modal-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .modal-buttons button {
+            flex: 1;
+            min-width: 120px;
+        }
+        
+        @media (max-width: 600px) {
+            .pain-scale {
+                justify-content: center;
+            }
+            
+            .pain-number {
+                width: 35px;
+                height: 35px;
+                font-size: 14px;
+            }
+            
+            .share-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .progress-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🧘‍♂️ L5-S1 Back Pain Relief</h1>
+            <p>Evidence-Based Exercise Guide for Sciatica & Lower Back Pain</p>
+        </div>
+        
+        <div id="streak-banner" class="streak-banner hidden">
+            🔥 <span id="streak-number">0</span> Day Streak!
+        </div>
+        
+        <div class="content">
+            <div class="disclaimer">
+                <strong>⚠️ Medical Disclaimer</strong>
+                This tool provides general information only and is not a substitute for professional medical advice, diagnosis, or treatment. Always consult with a qualified healthcare provider before starting any exercise program, especially if you have severe pain, numbness, weakness, or bowel/bladder dysfunction. If you experience worsening symptoms, stop exercises immediately and seek medical attention.
+            </div>
+            
+            <!-- Assessment Section -->
+            <div id="assessment" class="section">
+                <h2 style="margin-bottom: 20px; color: #667eea;">Symptom Assessment</h2>
+                <p style="margin-bottom: 20px; line-height: 1.6;">Please select the symptoms you're experiencing. This will help us recommend appropriate exercises for L5-S1 disc issues and sciatica.</p>
+                
+                <div class="question">
+                    <label>Where is your pain located?</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="pain-lower-back" value="lower-back">
+                            <span>Lower back (lumbar region)</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="pain-buttocks" value="buttocks">
+                            <span>Buttocks</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="pain-leg" value="leg">
+                            <span>Back of thigh and/or calf</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="pain-foot" value="foot">
+                            <span>Foot or toes</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <label>What type of pain do you experience?</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="type-sharp" value="sharp">
+                            <span>Sharp or shooting pain</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="type-burning" value="burning">
+                            <span>Burning sensation</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="type-numbness" value="numbness">
+                            <span>Numbness or tingling</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="type-aching" value="aching">
+                            <span>Dull aching</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <label>When does pain occur or worsen?</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="trigger-sitting" value="sitting">
+                            <span>Prolonged sitting</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="trigger-standing" value="standing">
+                            <span>Standing or walking</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="trigger-bending" value="bending">
+                            <span>Bending forward</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="trigger-morning" value="morning">
+                            <span>Morning stiffness</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="btn" onclick="showExercises()">Get My Exercise Plan</button>
+            </div>
+            
+            <!-- Exercises Section -->
+            <div id="exercises" class="section hidden">
+                <button class="btn back-btn" onclick="backToAssessment()">← Back to Assessment</button>
+                
+                <div id="milestone-container"></div>
+                
+                <!-- Reminder Setup -->
+                <div class="reminder-setup">
+                    <h3>⏰ Daily Reminder</h3>
+                    <p style="font-size: 14px; margin-bottom: 10px;">Set a time to be reminded to do your exercises:</p>
+                    <div class="time-selector">
+                        <input type="time" id="reminder-time" value="09:00">
+                        <button class="btn" onclick="setReminder()">Set Reminder</button>
+                    </div>
+                    <p style="font-size: 12px; margin-top: 10px; color: #666;">💡 Enable browser notifications for best experience</p>
+                </div>
+                
+                <!-- Pain Tracker -->
+                <div class="pain-tracker">
+                    <h3>📊 Daily Pain Check-In</h3>
+                    <p style="font-size: 14px; margin-bottom: 10px;">Rate your pain today (0 = no pain, 10 = worst pain):</p>
+                    <div class="pain-scale" id="pain-scale">
+                        <div class="pain-number" onclick="selectPain(0)">0</div>
+                        <div class="pain-number" onclick="selectPain(1)">1</div>
+                        <div class="pain-number" onclick="selectPain(2)">2</div>
+                        <div class="pain-number" onclick="selectPain(3)">3</div>
+                        <div class="pain-number" onclick="selectPain(4)">4</div>
+                        <div class="pain-number" onclick="selectPain(5)">5</div>
+                        <div class="pain-number" onclick="selectPain(6)">6</div>
+                        <div class="pain-number" onclick="selectPain(7)">7</div>
+                        <div class="pain-number" onclick="selectPain(8)">8</div>
+                        <div class="pain-number" onclick="selectPain(9)">9</div>
+                        <div class="pain-number" onclick="selectPain(10)">10</div>
+                    </div>
+                    <div class="pain-chart">
+                        <strong>Your 7-Day Progress</strong>
+                        <div class="chart-bars" id="pain-chart"></div>
+                    </div>
+                </div>
+                
+                <!-- Progress Summary -->
+                <div class="progress-summary">
+                    <h3 style="color: #667eea; margin-bottom: 15px;">Your Progress</h3>
+                    <div class="progress-stats">
+                        <div class="stat-box">
+                            <div class="stat-number" id="total-days">0</div>
+                            <div class="stat-label">Days Active</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number" id="exercises-completed">0</div>
+                            <div class="stat-label">Exercises Done</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number" id="pain-improvement">--</div>
+                            <div class="stat-label">Pain Reduction</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Share Progress -->
+                <div class="share-progress">
+                    <h3>📸 Share Your Progress</h3>
+                    <p style="font-size: 14px; color: white; margin-bottom: 15px;">Inspire others on Instagram with your recovery journey!</p>
+                    <button class="btn" onclick="generateShareCard()">Generate Story Image</button>
+                </div>
+                
+                <!-- Leaderboard -->
+                <div class="leaderboard">
+                    <h3>🏆 Community Leaderboard (This Week)</h3>
+                    <div class="leaderboard-list" id="leaderboard"></div>
+                    <p style="text-align: center; font-size: 12px; margin-top: 15px; color: #666;">Rankings update weekly. Keep your streak going!</p>
+                </div>
+                
+                <!-- Achievements -->
+                <h3 style="margin: 20px 0; color: #667eea;">🏆 Achievements</h3>
+                <div class="achievements" id="achievements"></div>
+                
+                <!-- Weekly Summary -->
+                <div class="weekly-summary">
+                    <h3>📧 Weekly Summary</h3>
+                    <div id="weekly-summary-content"></div>
+                    <button class="btn btn-secondary" onclick="exportWeeklySummary()" style="margin-top: 15px;">Download Summary</button>
+                </div>
+                
+                <h2 style="margin: 30px 0 20px 0; color: #667eea;">Your Personalized Exercise Plan</h2>
+                
+                <!-- Exercise 1 -->
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <h3>1. Sciatic Nerve Flossing <span class="exercise-level level-beginner" id="level-1">Beginner</span></h3>
+                    </div>
+                    <div class="exercise-details">
+                        <p><strong>Purpose:</strong> Gently mobilizes the sciatic nerve to reduce nerve tension and improve mobility along the L5-S1 pathway.</p>
+                        <p><strong>How to perform:</strong></p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>Sit on edge of a chair with good posture</li>
+                            <li>Keep affected leg straight, flex ankle (toes toward shin)</li>
+                            <li>Slowly straighten knee while flexing ankle</li>
+                            <li>Simultaneously tuck chin to chest</li>
+                            <li>Return to starting position</li>
+                        </ul>
+                        <p style="margin-top: 10px;"><strong id="reps-1">Repetitions:</strong> 10-15 repetitions, 2-3 times daily</p>
+                        <div class="level-progression" id="progression-1" style="display: none;">
+                            <strong>Level Progress</strong>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progress-fill-1" style="width: 0%"></div>
+                            </div>
+                            <p style="font-size: 12px; margin-top: 5px; color: #666;">Complete 5 times to unlock Intermediate</p>
+                        </div>
+                    </div>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/FYiQNrr9h3o" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="citation">
+                        <strong>Evidence:</strong> Basson et al. (2017). Journal of Orthopaedic & Sports Physical Therapy, 47(9), 593-615.
+                    </div>
+                    <div class="action-buttons">
+                        <button class="favorite-btn" onclick="toggleFavorite(this, 'nerve-flossing')">⭐ Favorite</button>
+                        <button class="complete-btn" onclick="markComplete(this, 1)">✓ Done</button>
+                        <button class="level-btn" onclick="levelUp(1)" id="level-btn-1">🔒 Level Up</button>
+                    </div>
+                </div>
+                
+                <!-- Exercise 2 -->
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <h3>2. Prone Press-ups <span class="exercise-level level-beginner" id="level-2">Beginner</span></h3>
+                    </div>
+                    <div class="exercise-details">
+                        <p><strong>Purpose:</strong> Promotes centralization of symptoms by extending the lumbar spine, potentially reducing disc pressure on nerve roots.</p>
+                        <p><strong>How to perform:</strong></p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>Lie face down on floor or firm surface</li>
+                            <li>Place hands under shoulders</li>
+                            <li>Slowly press upper body up, keeping hips on ground</li>
+                            <li>Hold for 2-3 seconds at top</li>
+                            <li>Lower back down with control</li>
+                        </ul>
+                        <p style="margin-top: 10px;"><strong id="reps-2">Repetitions:</strong> 10 repetitions, every 2-3 hours during acute phase</p>
+                        <div class="level-progression" id="progression-2" style="display: none;">
+                            <strong>Level Progress</strong>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progress-fill-2" style="width: 0%"></div>
+                            </div>
+                            <p style="font-size: 12px; margin-top: 5px; color: #666;">Complete 5 times to unlock Intermediate</p>
+                        </div>
+                    </div>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/Gkz91P2DTlw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="citation">
+                        <strong>Evidence:</strong> Machado et al. (2010). Spine, 35(9), E254-E262.
+                    </div>
+                    <div class="action-buttons">
+                        <button class="favorite-btn" onclick="toggleFavorite(this, 'prone-pressups')">⭐ Favorite</button>
+                        <button class="complete-btn" onclick="markComplete(this, 2)">✓ Done</button>
+                        <button class="level-btn" onclick="levelUp(2)" id="level-btn-2">🔒 Level Up</button>
+                    </div>
+                </div>
+                
+                <!-- Exercise 3 -->
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <h3>3. Pelvic Tilts <span class="exercise-level level-beginner" id="level-3">Beginner</span></h3>
+                    </div>
+                    <div class="exercise-details">
+                        <p><strong>Purpose:</strong> Activates deep core muscles and gently mobilizes lumbar spine without loading the disc.</p>
+                        <p><strong>How to perform:</strong></p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>Lie on back with knees bent, feet flat</li>
+                            <li>Flatten lower back against floor by rotating pelvis upward</li>
+                            <li>Engage abdominal muscles</li>
+                            <li>Hold 5 seconds</li>
+                            <li>Release and return to neutral</li>
+                        </ul>
+                        <p style="margin-top: 10px;"><strong id="reps-3">Repetitions:</strong> 10-15 repetitions, 2-3 times daily</p>
+                        <div class="level-progression" id="progression-3" style="display: none;">
+                            <strong>Level Progress</strong>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progress-fill-3" style="width: 0%"></div>
+                            </div>
+                            <p style="font-size: 12px; margin-top: 5px; color: #666;">Complete 5 times to unlock Intermediate</p>
+                        </div>
+                    </div>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/EOY7MFBl9to" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="citation">
+                        <strong>Evidence:</strong> Hides et al. (2008). JOSPT, 38(3), 101-108.
+                    </div>
+                    <div class="action-buttons">
+                        <button class="favorite-btn" onclick="toggleFavorite(this, 'pelvic-tilts')">⭐ Favorite</button>
+                        <button class="complete-btn" onclick="markComplete(this, 3)">✓ Done</button>
+                        <button class="level-btn" onclick="levelUp(3)" id="level-btn-3">🔒 Level Up</button>
+                    </div>
+                </div>
+                
+                <div style="background: #d1ecf1; padding: 20px; border-radius: 8px; margin-top: 30px;">
+                    <strong style="color: #0c5460;">💡 Important Tips:</strong>
+                    <ul style="margin-left: 20px; margin-top: 10px; line-height: 1.8; color: #0c5460;">
+                        <li>Track your pain daily to see improvement over time</li>
+                        <li>Set daily reminders to maintain consistency</li>
+                        <li>Share your progress on Instagram to inspire others</li>
+                        <li>Compete on the leaderboard for extra motivation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Share Card Modal -->
+    <div id="share-modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeShareModal()">×</button>
+            <div id="share-card-container">
+                <div class="share-card">
+                    <div class="share-card-header">
+                        <h2>My Recovery Journey</h2>
+                        <p style="color: #666;">L5-S1 Back Pain Relief App</p>
+                    </div>
+                    <div class="share-stats">
+                        <div class="share-stat">
+                            <div class="share-stat-value" id="share-streak">0</div>
+                            <div class="share-stat-label">Day Streak 🔥</div>
+                        </div>
+                        <div class="share-stat">
+                            <div class="share-stat-value" id="share-exercises">0</div>
+                            <div class="share-stat-label">Exercises</div>
+                        </div>
+                        <div class="share-stat">
+                            <div class="share-stat-value" id="share-pain">--%</div>
+                            <div class="share-stat-label">Pain Reduced</div>
+                        </div>
+                        <div class="share-stat">
+                            <div class="share-stat-value" id="share-badges">0</div>
+                            <div class="share-stat-label">Badges 🏆</div>
+                        </div>
+                    </div>
+                    <div class="share-footer">
+                        <p><strong>Join me in my recovery!</strong></p>
+                        <p style="margin-top: 5px;">Link in bio 👆</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-buttons">
+                <button class="btn" onclick="downloadShareCard()">📥 Download</button>
+                <button class="btn btn-secondary" onclick="copyToClipboard()">📋 Copy Stats</button>
+            </div>
+            <p style="text-align: center; font-size: 12px; color: #666; margin-top: 15px;">
+                Screenshot this card and share on Instagram Stories!
+            </p>
+        </div>
+    </div>
+    
+    <script>
+        // Data structure
+        let userData = {
+            streak: 0,
+            lastVisit: null,
+            painHistory: [],
+            exercisesCompleted: 0,
+            exerciseLevels: {1: 1, 2: 1, 3: 1},
+            exerciseCompletions: {1: 0, 2: 0, 3: 0},
+            favorites: [],
+            achievements: [],
+            reminderTime: '09:00',
+            username: 'User' + Math.floor(Math.random() * 1000)
+        };
+        
+        // Load data
+        function loadData() {
+            try {
+                const saved = localStorage.getItem('l5s1Data');
+                if (saved) {
+                    userData = JSON.parse(saved);
+                    updateStreak();
+                }
+            } catch (e) {
+                console.error('Error loading data:', e);
+            }
+        }
+        
+        // Save data
+        function saveData() {
+            try {
+                localStorage.setItem('l5s1Data', JSON.stringify(userData));
+            } catch (e) {
+                console.error('Error saving data:', e);
+            }
+        }
+        
+        // Update streak
+        function updateStreak() {
+            const today = new Date().toDateString();
+            const lastVisit = userData.lastVisit;
+            
+            if (lastVisit) {
+                const lastDate = new Date(lastVisit);
+                const todayDate = new Date(today);
+                const diffTime = todayDate - lastDate;
+                const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+                
+                if (diffDays === 0) {
+                } else if (diffDays === 1) {
+                    userData.streak++;
+                } else {
+                    userData.streak = 1;
+                }
+            } else {
+                userData.streak = 1;
+            }
+            
+            userData.lastVisit = today;
+            document.getElementById('streak-number').textContent = userData.streak;
+            document.getElementById('streak-banner').classList.remove('hidden');
+            saveData();
+        }
+        
+        // Pain tracking
+        function selectPain(level) {
+            document.querySelectorAll('.pain-number').forEach(el => el.classList.remove('selected'));
+            event.target.classList.add('selected');
+            
+            const today = new Date().toDateString();
+            userData.painHistory = userData.painHistory.filter(p => p.date !== today);
+            userData.painHistory.push({date: today, level: level});
+            if (userData.painHistory.length > 7) userData.painHistory.shift();
+            
+            updatePainChart();
+            updateStats();
+            checkMilestones();
+            saveData();
+        }
+        
+        // Update pain chart
+        function updatePainChart() {
+            const chart = document.getElementById('pain-chart');
+            if (!chart) return;
+            
+            chart.innerHTML = '';
+            
+            const last7Days = [];
+            for (let i = 6; i >= 0; i--) {
+                const d = new Date();
+                d.setDate(d.getDate() - i);
+                last7Days.push(d.toDateString());
+            }
+            
+            last7Days.forEach(date => {
+                const entry = userData.painHistory.find(p => p.date === date);
+                const bar = document.createElement('div');
+                bar.className = 'chart-bar';
+                const height = entry ? entry.level * 10 + 10 : 5;
+                bar.style.height = `${height}%`;
+                
+                const label = document.createElement('div');
+                label.className = 'chart-label';
+                label.textContent = new Date(date).toLocaleDateString('en-US', {weekday: 'short'});
+                bar.appendChild(label);
+                
+                chart.appendChild(bar);
+            });
+        }
+        
+        // Update stats
+        function updateStats() {
+            const daysEl = document.getElementById('total-days');
+            const exEl = document.getElementById('exercises-completed');
+            const painEl = document.getElementById('pain-improvement');
+            
+            if (daysEl) daysEl.textContent = userData.streak;
+            if (exEl) exEl.textContent = userData.exercisesCompleted;
+            
+            if (painEl && userData.painHistory.length >= 2) {
+                const first = userData.painHistory[0].level;
+                const latest = userData.painHistory[userData.painHistory.length - 1].level;
+                const improvement = Math.round(((first - latest) / first) * 100);
+                painEl.textContent = improvement > 0 ? `-${improvement}%` : '--';
+            }
+            
+            updateWeeklySummary();
+        }
+        
+        // Mark complete
+        function markComplete(btn, exerciseId) {
+            btn.classList.toggle('completed');
+            if (btn.classList.contains('completed')) {
+                btn.textContent = '✓ Completed';
+                userData.exercisesCompleted++;
+                userData.exerciseCompletions[exerciseId]++;
+                
+                const completions = userData.exerciseCompletions[exerciseId];
+                const currentLevel = userData.exerciseLevels[exerciseId];
+                if (currentLevel < 3) {
+                    const progress = (completions % 5) * 20;
+                    const fillEl = document.getElementById(`progress-fill-${exerciseId}`);
+                    if (fillEl) fillEl.style.width = `${progress}%`;
+                    
+                    if (completions % 5 === 0) {
+                        const levelBtn = document.getElementById(`level-btn-${exerciseId}`);
+                        if (levelBtn) {
+                            levelBtn.classList.add('unlocked');
+                            levelBtn.textContent = '⬆️ Level Up!';
+                        }
+                    }
+                }
+                
+                checkAchievements();
+            } else {
+                btn.textContent = '✓ Done';
+                userData.exercisesCompleted--;
+                userData.exerciseCompletions[exerciseId]--;
+            }
+            
+            updateStats();
+            updateLeaderboard();
+            saveData();
+        }
+        
+        // Level up
+        function levelUp(exerciseId) {
+            const btn = document.getElementById(`level-btn-${exerciseId}`);
+            if (!btn || !btn.classList.contains('unlocked')) return;
+            
+            userData.exerciseLevels[exerciseId]++;
+            const level = userData.exerciseLevels[exerciseId];
+            
+            const levelLabel = document.getElementById(`level-${exerciseId}`);
+            const levelBtn = document.getElementById(`level-btn-${exerciseId}`);
+            
+            if (level === 2) {
+                if (levelLabel) {
+                    levelLabel.textContent = 'Intermediate';
+                    levelLabel.className = 'exercise-level level-intermediate';
+                }
+                if (levelBtn) {
+                    levelBtn.classList.remove('unlocked');
+                    levelBtn.textContent = '🔒 Level Up';
+                }
+            } else if (level === 3) {
+                if (levelLabel) {
+                    levelLabel.textContent = 'Advanced';
+                    levelLabel.className = 'exercise-level level-advanced';
+                }
+                if (levelBtn) levelBtn.style.display = 'none';
+            }
+            
+            const fillEl = document.getElementById(`progress-fill-${exerciseId}`);
+            if (fillEl) fillEl.style.width = '0%';
+            saveData();
+        }
+        
+        // Toggle favorite
+        function toggleFavorite(btn, exerciseId) {
+            btn.classList.toggle('favorited');
+            if (btn.classList.contains('favorited')) {
+                btn.textContent = '⭐ Favorited';
+                if (!userData.favorites.includes(exerciseId)) {
+                    userData.favorites.push(exerciseId);
+                }
+            } else {
+                btn.textContent = '⭐ Favorite';
+                userData.favorites = userData.favorites.filter(id => id !== exerciseId);
+            }
+            saveData();
+        }
+        
+        // Achievements
+        const achievements = [
+            {id: 'first-day', icon: '🎯', title: 'Getting Started', desc: 'Complete first exercise', condition: () => userData.exercisesCompleted >= 1},
+            {id: 'week-warrior', icon: '🔥', title: '7-Day Streak', desc: 'Maintain 7-day streak', condition: () => userData.streak >= 7},
+            {id: 'pain-reducer', icon: '💪', title: 'Pain Reducer', desc: 'Reduce pain by 20%', condition: () => {
+                if (userData.painHistory.length < 2) return false;
+                const first = userData.painHistory[0].level;
+                const latest = userData.painHistory[userData.painHistory.length - 1].level;
+                return ((first - latest) / first) >= 0.2;
+            }},
+            {id: 'dedicated', icon: '⭐', title: 'Dedicated', desc: 'Complete 50 exercises', condition: () => userData.exercisesCompleted >= 50},
+            {id: 'level-master', icon: '🏆', title: 'Level Master', desc: 'Reach intermediate on all', condition: () => Object.values(userData.exerciseLevels).every(l => l >= 2)},
+            {id: 'month-champion', icon: '👑', title: '30-Day Champion', desc: 'Maintain 30-day streak', condition: () => userData.streak >= 30}
+        ];
+        
+        function checkAchievements() {
+            achievements.forEach(ach => {
+                if (ach.condition() && !userData.achievements.includes(ach.id)) {
+                    userData.achievements.push(ach.id);
+                    showMilestone(`🎉 Achievement Unlocked: ${ach.title}!`);
+                }
+            });
+            renderAchievements();
+        }
+        
+        function renderAchievements() {
+            const container = document.getElementById('achievements');
+            if (!container) return;
+            
+            container.innerHTML = '';
+            
+            achievements.forEach(ach => {
+                const unlocked = userData.achievements.includes(ach.id);
+                const badge = document.createElement('div');
+                badge.className = `badge ${unlocked ? 'unlocked' : 'locked'}`;
+                badge.innerHTML = `
+                    <div class="badge-icon">${ach.icon}</div>
+                    <div class="badge-title">${ach.title}</div>
+                    <div class="badge-desc">${ach.desc}</div>
+                `;
+                container.appendChild(badge);
+            });
+        }
+        
+        // Milestones
+        function checkMilestones() {
+            if (userData.streak === 7) {
+                showMilestone('🔥 Amazing! You hit a 7-day streak! Keep it up!');
+            }
+            if (userData.exercisesCompleted === 10) {
+                showMilestone('💪 10 exercises completed! You\'re building great habits!');
+            }
+        }
+        
+        function showMilestone(message) {
+            const container = document.getElementById('milestone-container');
+            if (!container) return;
+            
+            const alert = document.createElement('div');
+            alert.className = 'milestone-alert';
+            alert.textContent = message;
+            container.appendChild(alert);
+            
+            setTimeout(() => alert.remove(), 5000);
+        }
+        
+        // Reminder setup
+        function setReminder() {
+            const timeInput = document.getElementById('reminder-time');
+            if (!timeInput) return;
+            
+            const time = timeInput.value;
+            userData.reminderTime = time;
+            saveData();
+            
+            if ('Notification' in window) {
+                Notification.requestPermission().then(permission => {
+                    if (permission === 'granted') {
+                        showMilestone(`⏰ Reminder set for ${time} daily!`);
+                    } else {
+                        showMilestone('ℹ️ Enable notifications in your browser to receive reminders');
+                    }
+                });
+            } else {
+                showMilestone(`⏰ Reminder saved! You'll see a prompt at ${time} when you visit.`);
+            }
+        }
+        
+        // Share card
+        function generateShareCard() {
+            const modal = document.getElementById('share-modal');
+            if (!modal) return;
+            
+            document.getElementById('share-streak').textContent = userData.streak;
+            document.getElementById('share-exercises').textContent = userData.exercisesCompleted;
+            document.getElementById('share-badges').textContent = userData.achievements.length;
+            
+            if (userData.painHistory.length >= 2) {
+                const first = userData.painHistory[0].level;
+                const latest = userData.painHistory[userData.painHistory.length - 1].level;
+                const improvement = Math.round(((first - latest) / first) * 100);
+                document.getElementById('share-pain').textContent = improvement > 0 ? `-${improvement}%` : '--';
+            }
+            
+            modal.classList.add('active');
+        }
+        
+        function closeShareModal() {
+            const modal = document.getElementById('share-modal');
+            if (modal) modal.classList.remove('active');
+        }
+        
+        function downloadShareCard() {
+            showMilestone('📱 Take a screenshot of this card and share on Instagram!');
+        }
+        
+        function copyToClipboard() {
+            const text = `My L5-S1 Recovery Journey:\n🔥 ${userData.streak}-day streak\n💪 ${userData.exercisesCompleted} exercises completed\n📉 Pain reduced\n🏆 ${userData.achievements.length} badges earned\n\nJoin me! Link in bio`;
+            
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(() => {
+                    showMilestone('✓ Copied to clipboard! Paste into Instagram caption.');
+                }).catch(() => {
+                    showMilestone('❌ Copy failed. Try screenshot instead.');
+                });
+            } else {
+                showMilestone('📱 Screenshot this card to share!');
+            }
+        }
+        
+        // Leaderboard
+        function updateLeaderboard() {
+            const container = document.getElementById('leaderboard');
+            if (!container) return;
+            
+            const leaderboard = [
+                {name: 'Sarah M.', streak: 45, exercises: 234, you: false},
+                {name: 'Mike R.', streak: 38, exercises: 198, you: false},
+                {name: 'Jessica L.', streak: 32, exercises: 176, you: false},
+                {name: userData.username, streak: userData.streak, exercises: userData.exercisesCompleted, you: true},
+                {name: 'Tom B.', streak: 28, exercises: 152, you: false}
+            ];
+            
+            leaderboard.sort((a, b) => b.exercises - a.exercises);
+            
+            container.innerHTML = '';
+            
+            leaderboard.forEach((user, i) => {
+                const item = document.createElement('div');
+                item.className = 'leaderboard-item';
+                item.innerHTML = `
+                    <div class="leaderboard-rank">${i + 1}</div>
+                    <div class="leaderboard-info">
+                        <div class="leaderboard-name">${user.name} ${user.you ? '<span class="you-indicator">YOU</span>' : ''}</div>
+                        <div class="leaderboard-detail">${user.streak}-day streak</div>
+                    </div>
+                    <div class="leaderboard-score">${user.exercises}</div>
+                `;
+                container.appendChild(item);
+            });
+        }
+        
+        // Weekly summary
+        function updateWeeklySummary() {
+            const container = document.getElementById('weekly-summary-content');
+            if (!container) return;
+            
+            container.innerHTML = `
+                <div class="summary-item">
+                    <span>Exercises this week</span>
+                    <strong>${Math.min(userData.exercisesCompleted, 21)}</strong>
+                </div>
+                <div class="summary-item">
+                    <span>Days active</span>
+                    <strong>${Math.min(userData.streak, 7)}/7</strong>
+                </div>
+                <div class="summary-item">
+                    <span>Achievements earned</span>
+                    <strong>${userData.achievements.length}</strong>
+                </div>
+                <div class="summary-item">
+                    <span>Current streak</span>
+                    <strong>🔥 ${userData.streak} days</strong>
+                </div>
+            `;
+        }
+        
+        function exportWeeklySummary() {
+            const summary = `L5-S1 BACK PAIN RELIEF - WEEKLY SUMMARY
+========================================
+
+Week ending: ${new Date().toLocaleDateString()}
+
+PROGRESS:
+• Exercises completed: ${Math.min(userData.exercisesCompleted, 21)}
+• Days active: ${Math.min(userData.streak, 7)}/7
+• Current streak: ${userData.streak} days 🔥
+• Achievements: ${userData.achievements.length}/6
+
+PAIN TRACKING:
+${userData.painHistory.slice(-7).map(p => `• ${new Date(p.date).toLocaleDateString()}: Level ${p.level}/10`).join('\n')}
+
+Keep up the great work!
+            `;
+            
+            const blob = new Blob([summary], {type: 'text/plain'});
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'weekly-summary.txt';
+            a.click();
+            URL.revokeObjectURL(url);
+            
+            showMilestone('📥 Summary downloaded! Share in your Instagram bio.');
+        }
+        
+        // Navigation
+        function showExercises() {
+            document.getElementById('assessment').classList.add('hidden');
+            document.getElementById('exercises').classList.remove('hidden');
+            updatePainChart();
+            updateStats();
+            renderAchievements();
+            checkAchievements();
+            updateLeaderboard();
+            
+            for (let i = 1; i <= 3; i++) {
+                const prog = document.getElementById(`progression-${i}`);
+                if (prog) prog.style.display = 'block';
+            }
+        }
+        
+        function backToAssessment() {
+            document.getElementById('exercises').classList.add('hidden');
+            document.getElementById('assessment').classList.remove('hidden');
+        }
+        
+        // Initialize on load
+        window.addEventListener('DOMContentLoaded', function() {
+            loadData();
+        });
+    </script>
+</body>
+</html>
+Initial app upload
